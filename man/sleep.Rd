@@ -45,6 +45,7 @@ Theo Pepler
 \examples{
 # Sleep the system for 5 seconds
 sleep(5)
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 %\keyword{ ~kwd1 }
