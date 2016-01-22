@@ -8,7 +8,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-ts.stack(x, window)
+ts.stack(x, window = floor(length(x)/2)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
