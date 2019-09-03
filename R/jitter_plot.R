@@ -8,6 +8,7 @@ jitter_plot <- function(x, # vector containing quantitative data values
                         ylab = '', # vertical axis title
                         col = 'black', # colour of points
                         pch = 1, # plotting character
+                        cex.xaxis = 0.8, # character expansion factor for group labels on x-axis
                         plotmeans = TRUE, # logical: should the group means be shown?
                         plot2se = TRUE){ # logical: should the (2 *) standard error of the group means be shown?
 
@@ -60,5 +61,5 @@ jitter_plot <- function(x, # vector containing quantitative data values
   # add y-axis
   axis(side = 2)
   # add x-axis
-  axis(side = 1, at = c(1:ngroups), labels = grpnames, cex.axis = 0.8)
+  axis(side = 1, at = c(1:ngroups), labels = grpnames, cex.axis = cex.xaxis)
 }
