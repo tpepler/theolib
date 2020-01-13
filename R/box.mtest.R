@@ -35,5 +35,6 @@ box.mtest<-function(covmats, nvec)
 
   pval<-pchisq(q=chi2, df=v, lower.tail = F)
 
-  return(pval)
+  return(list(p.value = pval,
+              S.pooled = Sp))
 }

@@ -31,7 +31,9 @@ Vector of sample sizes of the k groups.
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-Returns the p value for the test.
+Returns a list with the values
+\item{p.value }{The p value for the test.}
+\item{S.pooled }{Pooled covariance matrix as used in the M-test, under the assumption of equal population covariance matrices.}
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -49,38 +51,18 @@ Theo Pepler
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (covmats, nvec) 
-{
-    k <- dim(covmats)[3]
-    p <- dim(covmats)[2]
-    ntot <- sum(nvec)
-    Sp <- matrix(0, nrow = p, ncol = p)
-    for (i in 1:k) {
-        Sp <- Sp + (nvec[i] - 1) * covmats[, , i]
-    }
-    Sp <- Sp/(ntot - k)
-    temp <- 0
-    for (i in 1:k) {
-        temp <- temp + 1/(nvec[i] - 1)
-    }
-    c1 <- (temp - (1/(ntot - k))) * (2 * (p^2) + 3 * p - 1)/(6 * 
-        (p + 1) * (k - 1))
-    temp2 <- 0
-    for (i in 1:k) {
-        temp2 <- temp2 + (nvec[i] - 1) * log(det(covmats[, , 
-            i]))
-    }
-    lnM <- 0.5 * (temp2) - 0.5 * (ntot - k) * log(det(Sp))
-    chi2 <- -2 * (1 - c1) * lnM
-    v <- 0.5 * (k - 1) * p * (p + 1)
-    pval <- pchisq(q = chi2, df = v, lower.tail = F)
-    return(pval)
-  }
+## Iris data
+data(iris)
+iris1 <- subset(iris, Species == 'setosa')
+iris2 <- subset(iris, Species == 'versicolor')
+iris3 <- subset(iris, Species == 'virginica')
+## Array containing the covariance matrices
+S <- array(NA, dim = c(4, 4, 3))
+S[, , 1] <- cov(iris1[, 1:4])
+S[, , 2] <- cov(iris2[, 1:4])
+S[, , 3] <- cov(iris3[, 1:4])
+## Box's M-test
+box.mtest(covmats = S, nvec = c(50, 50, 50))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
