@@ -39,6 +39,8 @@ Returns a list with the following:
 \item{misclass.rate }{Misclassification rate}
 \item{false.pos }{False positive rate}
 \item{false.neg }{False negative rate}
+\item{ppv }{Positive predictive value}
+\item{npv }{Negative predictive value}
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -64,5 +66,5 @@ table_compare(pred = predict.outcomes, actual = actual.outcomes)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{ ~kwd1 }% use one of  RShowDoc("KEYWORDS")
+%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line

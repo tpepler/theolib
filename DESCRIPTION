@@ -1,8 +1,8 @@
 Package: theolib
 Type: Package
 Title: Collection of Auxiliary Functions
-Version: 0.4-0
-Date: 2020-01-13
+Version: 0.4-1
+Date: 2020-03-09
 Author: Theo Pepler
 Maintainer: Theo Pepler <theo.pepler@glasgow.ac.uk>
 Description: Various auxiliary functions to ease computation with matrices, for example. Some of these functions may also be available in other R packages.

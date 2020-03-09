@@ -51,7 +51,7 @@ Theo Pepler
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function (datamat) 
+function (datamat)
 {
     n <- nrow(datamat)
     outputvec <- NULL
@@ -63,5 +63,5 @@ function (datamat)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{ ~kwd1 }
+%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
