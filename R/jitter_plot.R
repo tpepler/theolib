@@ -41,19 +41,19 @@ jitter_plot <- function(x, # vector containing quantitative data values
            col = col)
     # plot 2 * standard error bars (optional)
     if(plot2se){
-      sem <- sd(plotdata) / sqrt(length(plotdata))
+      sem <- sd(plotdata, na.rm = T) / sqrt(sum(!is.na(plotdata)))
       segments(x0 = i,
                x1 = i,
-               y0 = mean(plotdata) - 2 * sem,
-               y1 = mean(plotdata) + 2 * sem,
+               y0 = mean(plotdata, na.rm = T) - 2 * sem,
+               y1 = mean(plotdata, na.rm = T) + 2 * sem,
                col = 'black', lwd = 2)
     }
     # indicate group means (optional)
     if(plotmeans){
       segments(x0 = i - 0.25,
                x1 = i + 0.25,
-               y0 = mean(plotdata),
-               y1 = mean(plotdata),
+               y0 = mean(plotdata, na.rm = T),
+               y1 = mean(plotdata, na.rm = T),
                col = 'red', lwd = 2)
     }
   }
