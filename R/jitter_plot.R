@@ -2,7 +2,7 @@
 
 jitter_plot <- function(x, # vector containing quantitative data values
                         groups, # vector containing grouping variable
-                        ylim = c(0.9 * min(x), 1.1 * max(x)), # limits of vertical axis
+                        ylim = c(0.9 * min(x, na.rm = T), 1.1 * max(x, na.rm = T)), # limits of vertical axis
                         main = '', # plot title
                         xlab = '', # horizontal axis title
                         ylab = '', # vertical axis title
